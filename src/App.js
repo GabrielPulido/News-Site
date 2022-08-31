@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <Title />
+      <h1>News</h1>
       <SwitchCategoryButtons categoriesList={categoriesList} />
       <CategoryHeader {...categoriesList[0]} />
       <Article articleInfo={results[0]} />
