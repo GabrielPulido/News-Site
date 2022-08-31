@@ -1,8 +1,9 @@
 const CategoryHeader = (props) => {
+    const category = props;
     return (
         <div>
-            <img alt="" />
-            <h2>{props.name}</h2>
+            <img src={category.img} alt="business_logo" width="56px" height="56px" />
+            <h2>{category.name}</h2>
         </div>
     );
 }

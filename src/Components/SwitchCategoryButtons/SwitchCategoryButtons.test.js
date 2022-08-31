@@ -8,7 +8,7 @@ test('all categories in categoriesList are rendered in the Categories/navbar com
     const buttons = categoriesList.map(
         element => {
             const { name } = element;
-            return screen.getByText(name)
+            return screen.getByRole('button', { name: name });
         }
     );
 

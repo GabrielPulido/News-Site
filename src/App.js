@@ -5,11 +5,14 @@ import CategoryHeader from './Components/CategoryHeader/CategoryHeader';
 import { categoriesList } from './utils';
 
 function App() {
+
+
+
   return (
     <div className="App">
       <Title />
       <SwitchCategoryButtons categoriesList={categoriesList} />
-      <CategoryHeader name={'Business'} />
+      <CategoryHeader {...categoriesList[0]} />
     </div>
   );
 }
