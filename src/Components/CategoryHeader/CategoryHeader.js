@@ -1,7 +1,7 @@
 import './CategoryHeader.css';
 
 const CategoryHeader = (props) => {
-    const category = props;
+    const category = props.category;
     return (
         <div className="category_header_container">
             <img src={category.img} alt="business_logo" width="50px" height="50px" />

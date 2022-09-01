@@ -3,6 +3,7 @@ import SwitchCategoryButtons from './Components/SwitchCategoryButtons/SwitchCate
 import CategoryHeader from './Components/CategoryHeader/CategoryHeader';
 import Article from './Components/Article/Article';
 import { categoriesList } from './utils';
+import { useState } from 'react';
 
 import imgUrl from './images/dowjones.jpeg';
 
@@ -22,14 +23,18 @@ function App() {
 
   // State
   // Which category you clicked
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
+  const changeSelectedCategory = (newCategory) => {
+    setSelectedCategory(newCategory);
+  }
 
   return (
     <div className="App">
       <h1 className='header'>News</h1>
       <div className="container">
-        <SwitchCategoryButtons categoriesList={categoriesList} />
-        <CategoryHeader {...categoriesList[0]} />
+        <SwitchCategoryButtons categoriesList={categoriesList} clickHandler={changeSelectedCategory} />
+        {selectedCategory ? <CategoryHeader category={selectedCategory} /> : null}
         <Article articleInfo={results[0]} />
       </div>
     </div>
