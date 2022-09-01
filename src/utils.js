@@ -1,5 +1,11 @@
 // Make these array elements objects and add images to them (needed for CategoryHeader)
 import businessImg from './images/chart-line-solid.svg';
+import techImg from './images/laptop-code-solid.svg';
+import entertainmentImg from './images/ticket-solid.svg';
+import healthImg from './images/heart-solid.svg';
+import scienceImg from './images/flask-solid.svg';
+import sportsImg from './images/dumbbell-solid.svg';
+
 export const categoriesList = [
     {
         name: 'Business',
@@ -7,23 +13,23 @@ export const categoriesList = [
     },
     {
         name: 'Technology',
-        img: '',
+        img: techImg,
     },
     {
         name: 'Entertainment',
-        img: '',
+        img: entertainmentImg,
     },
     {
         name: 'Health',
-        img: '',
+        img: healthImg,
     },
     {
         name: 'Science',
-        img: '',
+        img: scienceImg,
     },
     {
         name: 'Sports',
-        img: '',
+        img: sportsImg,
     }
 ];
 

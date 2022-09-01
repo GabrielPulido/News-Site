@@ -1,11 +1,11 @@
 import './App.css';
-import Title from './Components/Title/Title';
 import SwitchCategoryButtons from './Components/SwitchCategoryButtons/SwitchCategoryButtons';
 import CategoryHeader from './Components/CategoryHeader/CategoryHeader';
 import Article from './Components/Article/Article';
 import { categoriesList } from './utils';
 
 import imgUrl from './images/dowjones.jpeg';
+
 const results = [
   {
     title: `Dow Jones Futures Fall As Market Rally Feels Fed Chief Powell's 'Pain'`,
@@ -19,6 +19,9 @@ const results = [
 ];
 
 function App() {
+
+  // State
+  // Which category you clicked
 
 
   return (
