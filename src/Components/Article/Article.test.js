@@ -29,14 +29,10 @@ test(`Article component's header has a link in it`, () => {
     expect(linkToArticle).toBeInTheDocument();
 });
 
+// Fix this special character test later
 test(`Article component description`, () => {
     render(<Article articleInfo={mockObj} />);
-    const description = screen.getByText(mockObj.description);
+    const expectedString = formatDate(mockObj.pubDate) + ' &#x2022; ' + mockObj.description;
+    const description = screen.getByText(expectedString);
     expect(description).toBeInTheDocument();
-});
-
-test(`Article component date`, () => {
-    render(<Article articleInfo={mockObj} />);
-    const date = screen.getByText(formatDate(mockObj.pubDate));
-    expect(date).toBeInTheDocument();
 });

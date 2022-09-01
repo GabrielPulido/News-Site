@@ -1,0 +1,13 @@
+.category_header_container {
+    display: flex;
+    font-size: 1.2rem;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.category_header {
+    margin-left: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: 600;
+}

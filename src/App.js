@@ -26,10 +26,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>News</h1>
-      <SwitchCategoryButtons categoriesList={categoriesList} />
-      <CategoryHeader {...categoriesList[0]} />
-      <Article articleInfo={results[0]} />
+      <h1 className='header'>News</h1>
+      <div className="container">
+        <SwitchCategoryButtons categoriesList={categoriesList} />
+        <CategoryHeader {...categoriesList[0]} />
+        <Article articleInfo={results[0]} />
+      </div>
     </div>
   );
 }

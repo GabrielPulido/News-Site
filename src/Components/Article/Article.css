@@ -1,0 +1,18 @@
+.article_container {
+    border: 1px solid grey;
+    display: flex;
+    padding: 15px;
+}
+
+.article_info {
+    margin-left: 15px;
+}
+
+.article_link {
+    text-decoration: none;
+    color: black;
+}
+
+.article_description {
+    color: #767676;
+}
