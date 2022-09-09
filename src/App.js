@@ -3,9 +3,10 @@ import SwitchCategoryButtons from './Components/SwitchCategoryButtons/SwitchCate
 import CategoryHeader from './Components/CategoryHeader/CategoryHeader';
 import Article from './Components/Article/Article';
 import { categoriesList } from './utils';
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import imgUrl from './images/dowjones.jpeg';
+const apiKey = 'test';
 
 const results = [
   {
@@ -24,9 +25,29 @@ function App() {
   // State
   // Which category you clicked
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [currentArticles, setCurrentArticles] = useState(null);
+  const shouldFetch = useRef(false);
+
+
+  useEffect(() => {
+    if (shouldFetch.current === true) {
+      fetch(`https://newsdata.io/api/1/news?apikey=${apiKey}`, { method: 'GET', mode: 'cors' })
+        .then(response => response.json())
+        .then(data => {
+          const results = data.results;
+          const threeArticles = [results[0], results[1], results[2]];
+          setCurrentArticles(threeArticles);
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    }
+  }, [selectedCategory]);
 
   const changeSelectedCategory = (newCategory) => {
     setSelectedCategory(newCategory);
+    shouldFetch.current = true;
+
   }
 
   return (
@@ -35,7 +56,7 @@ function App() {
       <div className="container">
         <SwitchCategoryButtons categoriesList={categoriesList} clickHandler={changeSelectedCategory} />
         {selectedCategory ? <CategoryHeader category={selectedCategory} /> : null}
-        <Article articleInfo={results[0]} />
+        {currentArticles ? currentArticles.map(article => <Article articleInfo={article} />) : null}
       </div>
     </div>
   );
