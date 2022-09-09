@@ -6,7 +6,7 @@ import { categoriesList } from './utils';
 import { useEffect, useState, useRef } from 'react';
 
 import imgUrl from './images/dowjones.jpeg';
-const apiKey = 'test';
+const { REACT_APP_API_KEY } = process.env;
 
 const results = [
   {
@@ -30,8 +30,8 @@ function App() {
 
 
   useEffect(() => {
-    if (shouldFetch.current === true) {
-      fetch(`https://newsdata.io/api/1/news?apikey=${apiKey}`, { method: 'GET', mode: 'cors' })
+    if (selectedCategory !== null) {
+      fetch(`https://newsdata.io/api/1/news?apikey=${REACT_APP_API_KEY}&category=${selectedCategory.name}&country=us`, { method: 'GET', mode: 'cors' })
         .then(response => response.json())
         .then(data => {
           const results = data.results;
@@ -46,8 +46,6 @@ function App() {
 
   const changeSelectedCategory = (newCategory) => {
     setSelectedCategory(newCategory);
-    shouldFetch.current = true;
-
   }
 
   return (

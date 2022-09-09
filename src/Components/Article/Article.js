@@ -4,6 +4,7 @@ import TitleLink from '../TitleLink/TitleLink';
 
 const Article = (props) => {
     const { articleInfo } = props;
+    console.log("article is rendered");
     return (
         <div className="article_container">
             <img alt='article_background_image' src={articleInfo.image_url} width="348px" height="196px" />
